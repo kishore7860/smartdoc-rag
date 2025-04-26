@@ -1,4 +1,5 @@
 # app/backend/vector_store.py
+import uuid
 
 class VectorStore:
     def __init__(self):
@@ -13,3 +14,15 @@ class VectorStore:
         # ⚡ MVP: Return all documents blindly for now
         # Later: use real similarity search with Pinecone or Chroma
         return self.documents
+    def add_documents(self, documents):
+        texts = [doc["text"] for doc in documents]
+        embeddings = self.embedder.model.encode(texts).tolist()
+
+        ids = [str(uuid.uuid4()) for _ in range(len(texts))]
+
+        self.collection.add(
+            documents=texts,
+            embeddings=embeddings,
+            ids=ids,
+        )
+        self.client.persist()
