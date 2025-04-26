@@ -1,12 +1,11 @@
-# app/frontend/app.py
 
 import streamlit as st
-from app.backend.rag_pipeline import RAGPipeline
+from appigaadu.backend.rag_pipeline import RAG
 
 st.set_page_config(page_title="Document Q&A Chatbot", page_icon="📚", layout="centered")
 
 # Initialize RAG Pipeline
-rag_pipeline = RAGPipeline()
+rag_pipeline = RAG()
 
 st.title("📚 Document Q&A Chatbot")
 
