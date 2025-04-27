@@ -36,12 +36,15 @@ An intelligent chatbot that answers questions based on uploaded documents (PDFs,
     venv\Scripts\activate     # Windows
 
 3.	Install the required packages
+    
     pip install -r requirements.txt
 
 4. Configure Hugging Face Inference API key in the .env file
+    
     HUGGING_FACE_API_KEY=your_api_key_here
 
 5. Run the Streamlit app
+    
     streamlit run app.py
 
 

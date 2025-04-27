@@ -15,12 +15,11 @@ def parse_and_chunk_pdfs(uploaded_files):
 
     # Now split text into chunks
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=500,  # ~500 characters (around 100-150 tokens)
-        chunk_overlap=50,  # overlap between chunks to preserve context
-        separators=["\n\n", "\n", ".", " "]  # prioritize splitting at paragraph breaks
-    )
+    chunk_size=300,
+    chunk_overlap=20,
+    separators=["\n\n", "\n", ".", " "]
+)
 
     chunks = text_splitter.split_text(all_text)
-
     # Return chunks as dicts (ready for vectorstore)
     return [{"text": chunk} for chunk in chunks]
