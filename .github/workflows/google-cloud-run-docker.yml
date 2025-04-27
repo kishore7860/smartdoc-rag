@@ -25,16 +25,15 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/my-app:${{ github.sha }} .
-
+          docker build -t us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/rag-chatbot-repo/smartdoc-rag:${{ github.sha }} .
       - name: Push Docker image
         run: |
-          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/my-app:${{ github.sha }}
+          docker push us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/rag-chatbot-repo/smartdoc-rag:${{ github.sha }}
 
       - name: Deploy to Cloud Run
         run: |
-          gcloud run deploy my-app \
-            --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/my-app:${{ github.sha }} \
-            --region us-central1 \
-            --platform managed \
-            --allow-unauthenticated
+          gcloud run deploy smartdoc-rag-service \
+          --image us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/rag-chatbot-repo/smartdoc-rag:${{ github.sha }} \
+          --region us-central1 \
+          --platform managed \
+          --allow-unauthenticated
