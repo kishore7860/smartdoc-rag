@@ -34,6 +34,5 @@ class VectorStore:
             n_results=1,
             include=["documents"]
         )
-        print("\n✅ Retrieved documents:\n", results["documents"][0])
         retrieved_texts = results["documents"][0]
         return [{"text": t} for t in retrieved_texts]
