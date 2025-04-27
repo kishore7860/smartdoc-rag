@@ -6,3 +6,4 @@ torch
 pdfplumber
 python-dotenv
 requests
+langchain
