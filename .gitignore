@@ -1,1 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
 venv/
+ENV/
+venv.bak/
+*.sqlite3
+
+# Streamlit
+.streamlit/
+
+# VSCode
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Env variables
+.env
+
+# ChromaDB folder
+chroma_db/
+
+# Docker
+*.log
+*.pid
