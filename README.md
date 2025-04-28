@@ -63,3 +63,5 @@ User (Streamlit UI)
 	•	Streamlit
 	•	ChromaDB
 	•	Mistral AI
+    •	pypdf
+    
